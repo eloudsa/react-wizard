@@ -2,7 +2,7 @@
 
 This sample application illustrates a way to implement a stepper with React and Material UI.
 
-It has been inspired from the video of Brad Traversy (https://www.youtube.com/watch?v=zT62eVxShsY) and the sample available in the Material UI documentation (https://material-ui.com/components/steppers/).
+It has been inspired from Brad Traversy (https://www.youtube.com/watch?v=zT62eVxShsY) and the sample provided in the official Material UI documentation (https://material-ui.com/components/steppers/).
 
 ## Get the project
 
