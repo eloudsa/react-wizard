@@ -1,19 +1,16 @@
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
-import Stepper0 from './Stepper0';
-import Stepper1 from './Stepper1';
-import Stepper2 from './Stepper2';
-import Stepper3 from './Stepper3';
-import Stepper4 from './Stepper4';
+import Instructions from './steps/Instructions';
+import UserDetails from './steps/UserDetails';
+import PersonalDetails from './steps/PersonalDetails';
+import Confirm from './steps/Confirm';
+import Submit from './steps/Submit';
 
-const StepperForm = () => {
+const UserForm = () => {
   // Styles
   const styles = makeStyles((theme) => ({
     root: {
@@ -22,6 +19,11 @@ const StepperForm = () => {
     },
     backButton: {
       marginRight: theme.spacing(1),
+    },
+    title: {
+      fontSize: '30px',
+      marginTop: theme.spacing(1),
+      marginBottom: theme.spacing(1),
     },
     instructions: {
       marginTop: theme.spacing(1),
@@ -36,7 +38,7 @@ const StepperForm = () => {
       color: theme.palette.text.secondary,
     },
     steps: {
-      minHeight: '200px',
+      minHeight: '300px',
     },
   }));
   const classes = styles();
@@ -44,19 +46,12 @@ const StepperForm = () => {
   // Steps
   const [activeStep, setActiveStep] = useState(0);
   const getSteps = () => {
-    return [
-      'Introduction',
-      'Select master blaster campaign settings',
-      'Create an ad group',
-      'Create an ad',
-      'Summary',
-    ];
+    return ['Instructions', 'User details', 'Personal information', 'Confirm'];
   };
   const steps = getSteps();
 
   // State variables
   const [wizardValues, setWizardValues] = useState({
-    step: 1,
     firstName: '',
     lastName: '',
     email: '',
@@ -69,15 +64,12 @@ const StepperForm = () => {
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
   };
-
   const handleBack = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
-
   const handleReset = () => {
     setActiveStep(0);
   };
-
   const handleChange = (input) => (e) => {
     setWizardValues({ ...wizardValues, [input]: e.target.value });
   };
@@ -95,29 +87,34 @@ const StepperForm = () => {
       <div>
         {activeStep === steps.length ? (
           <div>
-            <Typography className={classes.instructions}>
-              All steps completed
-            </Typography>
-            <Button onClick={handleReset}>Reset</Button>
+            <Submit />
+            <Button variant='contained' color='primary' onClick={handleReset}>
+              Reset
+            </Button>
           </div>
         ) : (
           <div>
             <div className={classes.steps}>
               {activeStep === 0 && (
-                <Stepper0 values={wizardValues} handleChange={handleChange} />
+                <Instructions
+                  values={wizardValues}
+                  handleChange={handleChange}
+                />
               )}
               {activeStep === 1 && (
-                <Stepper1 values={wizardValues} handleChange={handleChange} />
+                <UserDetails
+                  values={wizardValues}
+                  handleChange={handleChange}
+                />
               )}
               {activeStep === 2 && (
-                <Stepper2 values={wizardValues} handleChange={handleChange} />
+                <PersonalDetails
+                  values={wizardValues}
+                  handleChange={handleChange}
+                />
               )}
-              {activeStep === 3 && (
-                <Stepper3 values={wizardValues} handleChange={handleChange} />
-              )}
-              {activeStep === 4 && (
-                <Stepper4 values={wizardValues} handleChange={handleChange} />
-              )}
+              {activeStep === 3 && <Confirm values={wizardValues} />}
+              {activeStep === 4 && <Submit />}
             </div>
             <div>
               <Button
@@ -128,7 +125,7 @@ const StepperForm = () => {
                 Back
               </Button>
               <Button variant='contained' color='primary' onClick={handleNext}>
-                {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
+                {activeStep === steps.length - 1 ? 'Submit' : 'Next'}
               </Button>
             </div>
           </div>
@@ -138,4 +135,4 @@ const StepperForm = () => {
   );
 };
 
-export default StepperForm;
+export default UserForm;

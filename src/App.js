@@ -1,12 +1,11 @@
 import React from 'react';
 import './App.css';
-import WizardForm from './components/WizardForm';
-import StepperForm from './components/StepperForm';
+import UserForm from './components/UserForm';
 
 function App() {
   return (
     <div className='App'>
-      <StepperForm />
+      <UserForm />
     </div>
   );
 }
