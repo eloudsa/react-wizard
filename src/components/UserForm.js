@@ -68,6 +68,14 @@ const UserForm = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
   const handleReset = () => {
+    setWizardValues({
+      firstName: '',
+      lastName: '',
+      email: '',
+      occupation: '',
+      city: '',
+      bio: '',
+    });
     setActiveStep(0);
   };
   const handleChange = (input) => (e) => {
