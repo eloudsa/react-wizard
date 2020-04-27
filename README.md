@@ -4,6 +4,8 @@ This sample application illustrates a way to implement a stepper with React and 
 
 It has been inspired from Brad Traversy (https://www.youtube.com/watch?v=zT62eVxShsY) and the sample provided in the official Material UI documentation (https://material-ui.com/components/steppers/).
 
+The sample app is visible right here: (https://eloudsa.github.io/react-wizard/)
+
 ![Main screen](./doc/screenshot.png)
 
 ## Get the project
@@ -29,8 +31,24 @@ npm i
 npm start
 ```
 
-Have fun !!!
+## To deploy on GitHub pages
 
+First, you have to configure your GitHub repository to setup Github pages.
+Follow instructions desribed here: (https://www.youtube.com/watch?v=ctLFWAanxcI&list=PLZSJRMKZ7946B4tC9tBPBbb-H_LTdU-mI)
+
+Edit the file package.json to mention your GitHub page:
+
+```
+homepage="http://your-name/github.io/react-wizard/"
+```
+
+## Deploy to your Github repository
+
+```bash
+npm run deploy
+```
+
+Have fun !!!
 
 ## App Info
 
@@ -39,8 +57,9 @@ Have fun !!!
 Said Eloudrhiri
 
 Credit to:
-* Brad Traversy - [Traversy Media](http://www.traversymedia.com)
-* [Material UI](https://material-ui.com/)
+
+- Brad Traversy - [Traversy Media](http://www.traversymedia.com)
+- [Material UI](https://material-ui.com/)
 
 ### Version
 
