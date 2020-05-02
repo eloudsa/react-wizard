@@ -6,7 +6,6 @@ import Title from '../layout/Title';
 const PersonalDetails = ({ values, handleChange }) => {
   const styles = makeStyles((theme) => ({
     textField: {
-      width: '30%',
       margin: '0 auto',
     },
   }));

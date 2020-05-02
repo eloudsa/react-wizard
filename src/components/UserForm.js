@@ -9,6 +9,8 @@ import UserDetails from './steps/UserDetails';
 import PersonalDetails from './steps/PersonalDetails';
 import Confirm from './steps/Confirm';
 import Submit from './steps/Submit';
+import useCurrentWidth from '../hooks/useCurrentWidth';
+import MobileStepper from './layout/mobile/MobileStepper';
 
 const UserForm = () => {
   // Styles
@@ -82,16 +84,36 @@ const UserForm = () => {
     setWizardValues({ ...wizardValues, [input]: e.target.value });
   };
 
+  console.log('steps: ' + steps.length);
+
+  let width = useCurrentWidth();
+  console.log('Width2: ' + width);
+
   // Rendering
   return (
     <div className={classes.root}>
-      <Stepper activeStep={activeStep} alternativeLabel>
-        {steps.map((label) => (
-          <Step key={label}>
-            <StepLabel>{label}</StepLabel>
-          </Step>
-        ))}
-      </Stepper>
+      {width > 479 ? (
+        <Stepper activeStep={activeStep} alternativeLabel>
+          {steps.map((label) => (
+            <Step key={label}>
+              <StepLabel>{label}</StepLabel>
+            </Step>
+          ))}
+        </Stepper>
+      ) : (
+        <MobileStepper
+          activeStep={activeStep}
+          variant='progress'
+          steps={steps.length + 1}
+          position='static'
+        >
+          {steps.map((label) => (
+            <Step key={label}>
+              <StepLabel>{label}</StepLabel>
+            </Step>
+          ))}
+        </MobileStepper>
+      )}
       <div>
         {activeStep === steps.length ? (
           <div>
