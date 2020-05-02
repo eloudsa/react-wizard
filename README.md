@@ -6,7 +6,12 @@ It has been inspired from Brad Traversy (https://www.youtube.com/watch?v=zT62eVx
 
 The sample app is visible right here: (https://eloudsa.github.io/react-wizard/)
 
-![Main screen](./doc/screenshot.png)
+On the desktop, we use the Stepper component:
+![Desktop version](./doc/screenshot.png)
+
+
+On the mobile, we use the MobileStepper component:
+![Mobile version](./doc/screenshot-mobile.png)
 
 ## Get the project
 
