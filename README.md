@@ -7,11 +7,12 @@ It has been inspired from Brad Traversy (https://www.youtube.com/watch?v=zT62eVx
 The sample app is visible right here: (https://eloudsa.github.io/react-wizard/)
 
 On the desktop, we use the Stepper component:
-![Desktop version](./doc/screenshot.png)
 
+<img src="./doc/screenshot.png" alt="desktop" width="800">
 
 On the mobile, we use the MobileStepper component:
-![Mobile version](./doc/screenshot-mobile.png)
+
+<img src="./doc/screenshot-mobile.png" alt="mobile" height="800">
 
 ## Get the project
 
